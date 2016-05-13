@@ -39,6 +39,13 @@ var Datas = {
     });
   },
   
+  getUptimeInfos: function(req, res) {
+    Data.find({data: 'uptime'}, '-_id uptime', {limit: 1, sort: {createAt: -1}}, function(err, datas) {
+      if (err) throw err;
+      res.render('datas/uptime', {data: datas[0].uptime, title: 'Last Uptime'});
+    });
+  },
+  
   addDatas: function(req, res) {
     var socket = req.params.socket;
     

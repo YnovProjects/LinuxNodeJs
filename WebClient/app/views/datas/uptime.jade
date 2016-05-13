@@ -1,0 +1,22 @@
+html
+  head
+    title #{title}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:400,300,500', type='text/css')
+  
+  body
+    header
+      h1 
+        a(href='/') LinuxNodeJsApp
+      ul
+        li
+          a(href='/cpu-heat') CPU Heat
+        li
+          a(href='/cpu-freq') CPU Frequency
+        li
+          a(href='/storage') Storage Used
+        li
+          a(href='/uptime') Last Uptime
+    
+    div.container
+      h1 #{title}: #{data}

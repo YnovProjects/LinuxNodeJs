@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 router.get('/cpu-heat', datas.getCpuHeatInfos);
 router.get('/cpu-freq', datas.getCpuFreqInfos);
 router.get('/storage', datas.getStorageInfos);
+router.get('/uptime', datas.getUptimeInfos);
 
 router.get('/add/:socket', datas.addDatas);
 
