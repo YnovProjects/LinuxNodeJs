@@ -5,6 +5,10 @@ var Data = mongoose.model('Data');
 
 var _ = require('lodash');
 
+function trim(str) {
+  return str.replace(/^\s+|\s+$/gm,'');
+}
+
 var Datas = {
   getCpuHeatInfos: function(req, res) {
     Data.find({data: 'cpu-heat'}, '-_id value createAt', function(err, datas) {
@@ -46,8 +50,15 @@ var Datas = {
     });
   },
   
-  addDatas: function(req, res) {
-    var socket = req.params.socket;
+  addDatas: function(data) {
+    var socket = data.toString();
+    var socketClean = [];
+    for (var i = 0; i < socket.length; i++) {
+      if (socket[i] == '0' || socket[i] == '1' || socket[i] == '2' || socket[i] == '3' || socket[i] == '4' || socket[i] == '5' || socket[i] == '6' || socket[i] == '7' || socket[i] == '8' || socket[i] == '9' || socket[i] == ':') {
+        socketClean.push(socket[i]);
+      }
+    }
+    socket = socketClean.toString().replace(new RegExp(',', 'g'), '');
     
     // Create an array with different informations from the socket string
     var socketArray = _.split(socket, ':');
