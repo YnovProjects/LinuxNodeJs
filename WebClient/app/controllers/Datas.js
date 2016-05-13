@@ -13,7 +13,7 @@ var Datas = {
       for (var i = 0; i < datas.length; i++) {
         cpuHeatDatas.push([datas[i].createAt, datas[i].value]);
       }
-      res.render('datas/index', {datas: JSON.stringify(cpuHeatDatas)});
+      res.render('datas/index', {datas: JSON.stringify(cpuHeatDatas), title: 'CPU Heat', subtitle: 'in degrees celsius'});
     });
   },
   
@@ -24,7 +24,7 @@ var Datas = {
       for (var i = 0; i < datas.length; i++) {
         cpuFreqDatas.push([datas[i].createAt, datas[i].value]);
       }
-      res.render('datas/index', {datas: JSON.stringify(cpuFreqDatas)});
+      res.render('datas/index', {datas: JSON.stringify(cpuFreqDatas), title: 'CPU Frequency', subtitle: 'in megahertz'});
     });
   },
   
@@ -35,7 +35,7 @@ var Datas = {
       for (var i = 0; i < datas.length; i++) {
         storageDatas.push([datas[i].createAt, datas[i].value]);
       }
-      res.render('datas/index', {datas: JSON.stringify(storageDatas)});
+      res.render('datas/index', {datas: JSON.stringify(storageDatas), title: 'Storage Used', subtitle: 'in kilobyte'});
     });
   },
   

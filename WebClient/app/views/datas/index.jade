@@ -1,5 +1,8 @@
 html
   head
+    title #{title} #{subtitle}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:400,300,500', type='text/css')
     script(type='text/javascript', src='https://www.gstatic.com/charts/loader.js')
     script(type='text/javascript').
       google.charts.load('current', {'packages':['line']});
@@ -14,20 +17,27 @@ html
         data.addRows(!{datas});
 
         var options = {
-          chart: {
-            title: 'Box Office Earnings in First Two Weeks of Opening',
-            subtitle: 'in millions of dollars (USD)'
-          },
-          width: 900,
-          height: 500
+          width: 1400,
+          height: 800
         };
 
         var chart = new google.charts.Line(document.getElementById('chart'));
 
         chart.draw(data, options);
       }
-      
-      
-      
+  
   body
-    #chart(style='width: 900px; height: 500px')
+    header
+      h1 
+        a(href='/') LinuxNodeJsApp
+      ul
+        li
+          a(href='/cpu-heat') CPU Heat
+        li
+          a(href='/cpu-freq') CPU Frequency
+        li
+          a(href='/storage') Storage Used
+    div.container
+      h1 #{title}
+      h2 #{subtitle}
+      #chart(style='width: 1400px; height: 800px')

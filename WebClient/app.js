@@ -55,7 +55,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-mongoose.connect('mongodb://localhost/linuxnodeproject', function(err) {
+mongoose.connect('mongodb://localhost/lolololol', function(err) {
   if(err) throw err;
 });
 
